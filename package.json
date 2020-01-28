@@ -13,10 +13,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hazeldiv/new-discord-bot.git"
+    "url": "git+https://github.com/1hazel1/new-discord-bot"
   },
   "bugs": {
-    "url": "https://github.com/hazeldiv/new-discord-bot/issues"
+    "url": "https://github.com/1hazel1/new-discord-bot/issues"
   },
-  "homepage": "https://github.com/hazeldiv/new-discord-bot#readme"
+  "homepage": "https://github.com/1hazel1/new-discord-bot#readme"
 }
