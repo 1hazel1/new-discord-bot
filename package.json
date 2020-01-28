@@ -1,0 +1,22 @@
+{
+  "name": "obs",
+  "version": "1.0.0",
+  "description": "bot for obs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "hazel",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hazeldiv/new-discord-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hazeldiv/new-discord-bot/issues"
+  },
+  "homepage": "https://github.com/hazeldiv/new-discord-bot#readme"
+}
