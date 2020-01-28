@@ -151,4 +151,4 @@ bot.on('ready', () => {
 
 
 
-bot.login('NTk0NzQ5NzAzNjIzNjcxODE4.XjAeGg.YSqAYHRiWPxWQh6N1DwqSAV-4I8');
+bot.login('NTk0NzQ5NzAzNjIzNjcxODE4.XjAeeQ.Dw15nhn8ZZt41UxJ4n2B7XZO9KM');
