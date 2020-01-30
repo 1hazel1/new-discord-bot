@@ -6,6 +6,14 @@ var token = process.env.token;
 var userData = JSON.parse(fs.readFileSync('storage/userData.json', 'utf8'));
 var commandList = fs.readFileSync('storage/commands.txt', 'utf8');
 bot.commands = new Discord.Collection();
+bot.aliases = new Discord.Collection();
+
+var serverStats ={
+  guildID: '631815957538668554',
+  totalUserID: '672384339920814090',
+  memberCountID: '672384628627341313',
+  botCountID: '672384532246429696'
+};
 
 fs.readdir('./commands/', (err, files) => {
   if(err) console.error(err);
@@ -42,7 +50,7 @@ bot.on('message', message => {
 
     if (!message.content.startsWith(prefix)) return;
 
-    var cmd = bot.commands.get(cont[0])
+    var cmd = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if (cmd) cmd.run(bot, message, args);
 
 
@@ -136,11 +144,24 @@ bot.on('message', message => {
 
 bot.on('guildMemberAdd', member => {
   console.log('user ' + member.user.username + ' has joined')
-
   const role = member.guild.roles.find('name', '👨‍🚀Astronaut');
-
   member.addRole(role)
-})
+
+  if (member.guild.id !== serverStats.guildID) return;
+
+  bot.channels.get(serverStats.totalUserID).setName(`Jumlah User : ${member.guild.memberCount}`);
+  bot.channels.get(serverStats.memberCountID).setName(`Jumlah Member : ${member.guild.members.filter(m => !m.user.bot).size}`);
+  bot.channels.get(serverStats.botCountID).setName(`Jumlah Bot : ${member.guild.members.filter(m => m.user.bot).size}`);
+});
+
+bot.on('guildMemberRemove', member => {
+  if (member.guild.id !== serverStats.guildID) return;
+
+  bot.channels.get(serverStats.totalUserID).setName(`Jumlah User : ${member.guild.memberCount}`);
+  bot.channels.get(serverStats.memberCountID).setName(`Jumlah Member : ${member.guild.members.filter(m => !m.user.bot).size}`);
+  bot.channels.get(serverStats.botCountID).setName(`Jumlah Bot : ${member.guild.members.filter(m => m.user.bot).size}`);
+});
+
 
 bot.on('ready', () => {
     console.log(`${bot.user.username} is online`);
@@ -152,4 +173,4 @@ bot.on('ready', () => {
 
 
 
-bot.login(token);
+bot.login('NTk0NzQ5NzAzNjIzNjcxODE4.XjAwaQ.V69iix2cOkjvZMOxTqxSWggzioY');
