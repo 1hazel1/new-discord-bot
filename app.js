@@ -173,4 +173,4 @@ bot.on('ready', () => {
 
 
 
-bot.login('NTk0NzQ5NzAzNjIzNjcxODE4.XjAwaQ.V69iix2cOkjvZMOxTqxSWggzioY');
+bot.login('token');
