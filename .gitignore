@@ -1,3 +1,4 @@
+node-modules/
 package-lock.json
 BOT info.txt
 bot start.bat
